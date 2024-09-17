@@ -1,0 +1,40 @@
+
+## How to Run
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/edu-samples/golang-wasm-browser.git
+   cd golang-wasm-browser
+   ```
+
+2. Compile the Go code to WebAssembly:
+   ```
+   make
+   ```
+
+3. Serve the files locally:
+   ```
+   make serve
+   ```
+
+4. Open your browser and navigate to [http://localhost:4545](http://localhost:4545)
+
+## How It Works
+
+1. The Go code in `main.go` defines two functions: `greet` and `fibonacci`.
+2. These functions are compiled to WebAssembly (`main.wasm`).
+3. The HTML file loads the WebAssembly module and sets up the user interface.
+4. JavaScript functions call the Go functions when user interacts with the page.
+
+## Background Information
+
+### WebAssembly (Wasm)
+
+WebAssembly is a binary instruction format for a stack-based virtual machine. It's designed to be fast to load and execute, and to provide a compact representation of programs.
+
+### Go and WebAssembly
+
+Go has built-in support for compiling to WebAssembly. This allows developers to write Go code that can run in web browsers, leveraging Go's strengths in a web environment.
+
+### How Go, WebAssembly, and the Browser Interact
+

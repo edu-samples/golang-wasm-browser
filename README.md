@@ -1,6 +1,4 @@
-# Go WebAssembly Example
-
-[Project Repository](https://github.com/edu-samples/golang-wasm-browser)
+# Go WebAssembly Browser Example
 
 This project demonstrates how to compile Go code into WebAssembly (Wasm) and use it from a website. It includes two examples: a greeting function and a Fibonacci calculator.
 
