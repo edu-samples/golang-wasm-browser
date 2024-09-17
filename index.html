@@ -9,15 +9,42 @@
         const go = new Go();
         WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
+        }).catch(error => {
+            console.error('Failed to load WebAssembly module:', error);
+            showCORSError();
         });
 
+        function showCORSError() {
+            const errorMessage = `
+                <div class="error-message">
+                    <h2>CORS Error Detected</h2>
+                    <p>Due to CORS security mechanisms, you need to run this website from a server.</p>
+                    <p>Please use one of the following methods:</p>
+                    <ol>
+                        <li>Run locally using the command: <code>make serve</code></li>
+                        <li>Open in your browser: <a href="http://localhost:4545">http://localhost:4545</a></li>
+                        <li>Upload to a web server</li>
+                    </ol>
+                </div>
+            `;
+            document.body.innerHTML = errorMessage;
+        }
+
         function callGreet() {
+            if (typeof greet === 'undefined') {
+                showCORSError();
+                return;
+            }
             const name = document.getElementById("name").value;
             const greeting = greet(name);
             document.getElementById("greetOutput").textContent = greeting;
         }
 
         function callFibonacci() {
+            if (typeof fibonacci === 'undefined') {
+                showCORSError();
+                return;
+            }
             const n = document.getElementById("fibInput").value;
             const result = fibonacci(n);
             document.getElementById("fibOutput").textContent = result;
@@ -30,7 +57,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        h1 {
+        h1, h2 {
             color: #333;
         }
         .section {
@@ -38,6 +65,20 @@
         }
         input, button {
             margin: 5px 0;
+        }
+        .error-message {
+            background-color: #ffeeee;
+            border: 1px solid #ffcccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .error-message h2 {
+            color: #cc0000;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
         }
     </style>
 </head>

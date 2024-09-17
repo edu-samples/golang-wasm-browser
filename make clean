@@ -3,7 +3,6 @@ This will delete the `main.wasm` and `wasm_exec.js` files.
 
 ## Further Improvements
 
-- Add error handling for invalid inputs
-- Implement more complex Go functions to showcase WebAssembly capabilities
+- Add more complex Go functions to showcase WebAssembly capabilities
 - Enhance the user interface with CSS frameworks or custom styles
 - Add unit tests for Go functions

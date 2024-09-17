@@ -14,7 +14,7 @@ clean:
 	rm -f main.wasm wasm_exec.js
 
 serve:
-	python3 -m http.server 8080
+	python3 -m http.server 4545
 
 .PHONY: install-goexec
 install-goexec:
