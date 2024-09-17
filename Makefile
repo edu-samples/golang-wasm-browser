@@ -1,4 +1,4 @@
-.PHONY: all clean serve
+.PHONY: all clean serve deploy
 
 GOROOT := $(shell go env GOROOT)
 
@@ -15,6 +15,9 @@ clean:
 
 serve:
 	python3 -m http.server 4545
+
+deploy: all
+	@echo "Project is ready for deployment"
 
 .PHONY: install-goexec
 install-goexec:

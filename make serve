@@ -1,12 +1,26 @@
 
 This will start a local web server on port 4545. Open your web browser and navigate to `http://localhost:4545` to see the example in action.
 
+## Deploying the Project
+
+This project is configured for deployment on Netlify. To deploy:
+
+1. Sign up for a Netlify account if you don't have one.
+2. Connect your GitHub repository to Netlify.
+3. Netlify will automatically detect the `netlify.toml` configuration and deploy your site.
+
+Alternatively, you can deploy manually:
+
+1. Run `make deploy` to prepare the project for deployment.
+2. Upload the contents of the project directory to your preferred hosting platform.
+
 ## Project Structure
 
 - `main.go`: The Go code that will be compiled to WebAssembly.
 - `index.html`: The HTML file that loads and uses the WebAssembly module.
 - `wasm_exec.js`: JavaScript glue code provided by Go (copied from Go installation).
 - `Makefile`: Automates the build process.
+- `netlify.toml`: Configuration file for Netlify deployment.
 
 ## How it Works
 
@@ -21,7 +35,7 @@ This will start a local web server on port 4545. Open your web browser and navig
 
 ## CORS Error Handling
 
-If you open the `index.html` file directly in a browser without using a web server, you may encounter CORS errors. The application now detects these errors and displays a helpful message explaining how to properly run the project.
+If you open the `index.html` file directly in a browser without using a web server, you may encounter CORS errors. The application detects these errors and displays a helpful message explaining how to properly run the project.
 
 ## Cleaning Up
 
