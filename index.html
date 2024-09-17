@@ -14,14 +14,46 @@
         function callGreet() {
             const name = document.getElementById("name").value;
             const greeting = greet(name);
-            document.getElementById("output").textContent = greeting;
+            document.getElementById("greetOutput").textContent = greeting;
+        }
+
+        function callFibonacci() {
+            const n = document.getElementById("fibInput").value;
+            const result = fibonacci(n);
+            document.getElementById("fibOutput").textContent = result;
         }
     </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
     <h1>Go WebAssembly Example</h1>
-    <input type="text" id="name" placeholder="Enter your name">
-    <button onclick="callGreet()">Greet</button>
-    <p id="output"></p>
+    <div class="section">
+        <h2>Greeting</h2>
+        <input type="text" id="name" placeholder="Enter your name">
+        <button onclick="callGreet()">Greet</button>
+        <p id="greetOutput"></p>
+    </div>
+    <div class="section">
+        <h2>Fibonacci Calculator</h2>
+        <input type="number" id="fibInput" placeholder="Enter a number">
+        <button onclick="callFibonacci()">Calculate</button>
+        <p id="fibOutput"></p>
+    </div>
 </body>
 </html>

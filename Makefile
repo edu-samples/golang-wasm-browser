@@ -15,3 +15,7 @@ clean:
 
 serve:
 	go run -v github.com/shurcooL/goexec 'http.ListenAndServe(`:8080`, http.FileServer(http.Dir(`.`)))'
+
+.PHONY: install-goexec
+install-goexec:
+	go get -u github.com/shurcooL/goexec
