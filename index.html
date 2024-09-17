@@ -45,8 +45,14 @@
                 showCORSError();
                 return;
             }
-            const n = document.getElementById("fibInput").value;
-            const result = fibonacci(n);
+            const n = parseInt(document.getElementById("fibInput").value);
+            if (n > 42) {
+                document.getElementById("fibWarning").style.display = "block";
+                document.getElementById("fibOutput").textContent = "";
+                return;
+            }
+            document.getElementById("fibWarning").style.display = "none";
+            const result = fibonacci(n.toString());
             document.getElementById("fibOutput").textContent = result;
         }
     </script>
@@ -80,6 +86,15 @@
             padding: 2px 4px;
             border-radius: 3px;
         }
+        .warning {
+            display: none;
+            color: #cc6600;
+            background-color: #fff3e0;
+            border: 1px solid #ffcc80;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -95,6 +110,10 @@
         <input type="number" id="fibInput" placeholder="Enter a number">
         <button onclick="callFibonacci()">Calculate</button>
         <p id="fibOutput"></p>
+        <div id="fibWarning" class="warning">
+            Warning: Computing Fibonacci numbers larger than 42 may take too long and block the browser/CPU. 
+            This operation will be prevented in this example site.
+        </div>
     </div>
 </body>
 </html>
