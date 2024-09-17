@@ -6,6 +6,7 @@ This project demonstrates how to compile Go code into WebAssembly and use it fro
 
 - Go 1.11 or later
 - Make
+- Python 3 (for serving the files)
 
 ## Building the Project
 

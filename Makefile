@@ -14,7 +14,7 @@ clean:
 	rm -f main.wasm wasm_exec.js
 
 serve:
-	go run -v github.com/shurcooL/goexec 'http.ListenAndServe(`:8080`, http.FileServer(http.Dir(`.`)))'
+	python3 -m http.server 8080
 
 .PHONY: install-goexec
 install-goexec:
