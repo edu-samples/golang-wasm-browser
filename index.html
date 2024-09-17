@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go WebAssembly Example</title>
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+
+        function callGreet() {
+            const name = document.getElementById("name").value;
+            const greeting = greet(name);
+            document.getElementById("output").textContent = greeting;
+        }
+    </script>
+</head>
+<body>
+    <h1>Go WebAssembly Example</h1>
+    <input type="text" id="name" placeholder="Enter your name">
+    <button onclick="callGreet()">Greet</button>
+    <p id="output"></p>
+</body>
+</html>
